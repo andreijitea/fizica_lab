@@ -5,7 +5,7 @@ import numpy as np
 data = np.loadtxt("content.csv", delimiter=",", dtype=str)
 
 # Setez dimensiunea imaginilor
-plt.rcParams['figure.dpi'] = 300
+plt.rcParams['figure.dpi'] = 200
 
 # Generez 4 grafice, cate unul pentru fiecare raza
 # Graficul r=2 are x < 9
@@ -36,7 +36,6 @@ for i in range(1, 5):
     tensiuni = tensiuni[mask]
     curenti = curenti[mask]
     curenti = np.square(curenti)
-    print(tensiuni, curenti)
 
     # Afisez punctele aflate in urma experimentului
     ax.plot(curenti, tensiuni, label=f"Raza {i+1}cm", marker="o")
@@ -44,7 +43,7 @@ for i in range(1, 5):
     # Calculez dreapta de regresie folosind toate punctele (1)
     coef = np.polyfit(curenti, tensiuni, 1)
     panta = coef[0]
-    print(coef)
+    
     # Afisez dreapta de regresie (1)
     ax.plot(curenti, panta*curenti, label="Dreapta de regresie 1")
 
@@ -72,4 +71,6 @@ for i in range(1, 5):
     ax.plot([], [], label=f"Sarcina specifica: {sarc:.2e}", color="white")
 
     ax.legend()
-    plt.show()
+
+    # Salvez graficul
+    fig.savefig(f"r{i+1}.png")
