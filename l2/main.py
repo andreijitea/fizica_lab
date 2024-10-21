@@ -11,7 +11,7 @@ d1 = 2.13 * 10 ** -10 # metri
 d2 = 1.23 * 10 ** -10 # metri
 
 # Setez dimensiunea imaginilor
-plt.rcParams['figure.dpi'] = 300
+plt.rcParams['figure.dpi'] = 200
 
 
 # Citesc datele din fisier
