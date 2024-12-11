@@ -21,7 +21,7 @@ for i in range(5):
 # Inversez tensiunile pentru a avea N crescator
 tensiuni_medii = tensiuni_medii[::-1]
 tensiuni_diff = np.diff(tensiuni_medii)
-tensiuni_std = np.std(tensiuni, axis=1, ddof=1)
+tensiuni_std = np.std(tensiuni, axis=0, ddof=1)
 
 # Generez graficul
 fig, ax = plt.subplots()
